@@ -1,0 +1,63 @@
+<div class="container">
+<div class="panel-heading" style="font-size:large">
+    <p id="hederText">Student Details</p>
+</div>
+
+
+
+<div class="panel panel-body" align="center">
+    <div class="fortable">
+        <table class="table table-hover">
+            <thead>
+            <tr class="danger">
+                <td >Student</td>
+                <td>EnrollmentNo</td>
+                <td>Department</td>
+                <td>Student Address</td>
+                <td>Actions</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="student in students">
+                <td>{{ student.studentName}}</td>
+                <td>{{ student.enrollmentNo }}</td>
+                <td>{{ student.department }}</td>
+                <td>{{ student.studentAddress  }}</td>
+                <td>
+                    <button id = "editbutton" class="btn " ng-click="showstudent(student)" >Edit</button>&nbsp;
+                    <button class="btn " ng-click="deletestudent(student)" >Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div align="right">
+        <button id ="addbtna" class="btn " ng-click="showForm()" ng-hide="addFormShow">+</button>
+        <button id ="clsbtn" class="btn " ng-click="hideForm()" ng-show="addFormShow">-</button>
+    </div>
+
+    <form ng-submit="addFormSubmit()" ng-show="addFormShow">
+        <input type="text" ng-model="studentName" placeholder="Student Name" required />
+        <input type="number" ng-model="enrollmentNo" placeholder="Enrollment no" required />
+        <input type="text" ng-model="department" placeholder="department" required />
+        <input type="text" ng-model="studentAddress" placeholder="StudentAddress" required />
+        <input type="submit" value="Add student" class="btn btn-default btn-success" required />
+    </form>
+
+
+
+    <form ng-submit="editFormSubmit()" ng-show="editFormShow">
+        <input type="text" ng-model="studentName" placeholder="Student Name" required />
+        <input type="text" ng-model="enrollmentNo" placeholder="Enrollment no" required />
+        <input type="text" ng-model="department" placeholder="department" required/>
+        <input type="text" ng-model="studentAddress" placeholder="Student Address" required />
+        <input type="submit" value="Edit student" class="btn btn-default btn-warning" />
+    </form>
+</div>
+
+
+
+
+
+
+</div>
